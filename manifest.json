@@ -1,0 +1,120 @@
+{
+  "name": "deckcp-deck-making-skills",
+  "version": "0.2.0",
+  "title": "DeckCP deck-making skill pack",
+  "description": "Interview, outline, critique, build, edit, analyze, and share great decks from Claude Code. Two tiers: provider-agnostic deck craft that works with no DeckCP account, plus DeckCP-powered skills that drive the DeckCP MCP.",
+  "target_runtime": "claude-code",
+  "install_dir": ".claude/skills",
+  "public_repo": "deckcp/deck-making-skills",
+  "raw_base_url": "https://raw.githubusercontent.com/deckcp/deck-making-skills/main",
+  "audience": ["startups/founders", "salespeople", "business development"],
+  "principles": [
+    "Scripts over tokens — deterministic bash/node does the heavy lifting for free (dedup, hashing, consistency scans, formatting).",
+    "Three model tiers, chosen per step and justified in each SKILL.md: (1) pure script wherever deterministic; (2) Haiku 4.5 subagent only for cheap mechanical classification (asset captioning, fuzzy terminology matching); (3) the user's main-loop model for real-judgment steps (interview, outline, critique, multi-lens analysis) — NOT downgraded, because the Tier-1 craft skills are the self-marketing surface.",
+    "Tier 1 is deliberately useful with no DeckCP account, so it self-markets DeckCP to people who then convert."
+  ],
+  "tiers": {
+    "1": "Provider-agnostic deck craft — no DeckCP account required.",
+    "2": "DeckCP-powered — drives the DeckCP MCP (build/edit/share/assets)."
+  },
+  "skills": [
+    {
+      "name": "deck-interview",
+      "tier": 1,
+      "status": "ready",
+      "model_step": "main-loop",
+      "summary": "Interrogate a founder/salesperson/BD: audience, goal, the ask, proof, narrative. Willing to push back on weak positioning. Emits brief.json."
+    },
+    {
+      "name": "deck-outline",
+      "tier": 1,
+      "status": "ready",
+      "model_step": "main-loop",
+      "summary": "Outline-first: turn the brief into a story spine (problem→insight→solution→proof→ask) before any slides. Emits outline.json + outline.md."
+    },
+    {
+      "name": "deck-critique",
+      "tier": 1,
+      "status": "planned",
+      "model_step": "main-loop",
+      "summary": "Analyze a deck and say what's weak — narrative, clarity, the ask. Honest, specific, prioritized."
+    },
+    {
+      "name": "deck-analyze-consistency",
+      "tier": 1,
+      "status": "planned",
+      "model_step": "script",
+      "summary": "Script-first check of fonts/colors/spacing/terminology consistency across slides. Zero tokens for the scan; Haiku only for fuzzy terminology grouping."
+    },
+    {
+      "name": "deck-analyze-visual",
+      "tier": 1,
+      "status": "planned",
+      "model_step": "main-loop",
+      "summary": "Render each slide and look at it — balance, hierarchy, contrast, density, the 5-second test."
+    },
+    {
+      "name": "deck-analyze-multi",
+      "tier": 1,
+      "status": "planned",
+      "model_step": "main-loop",
+      "summary": "Run several lenses (investor, sales, skeptic, 5-second test) and synthesize a prioritized fix list."
+    },
+    {
+      "name": "deck-writing-samples",
+      "tier": 1,
+      "status": "planned",
+      "model_step": "main-loop",
+      "summary": "Distill the user's voice/tone from writing samples into voice.json that later steps feed to copy."
+    },
+    {
+      "name": "deckcp-gather-assets",
+      "tier": 2,
+      "status": "ready",
+      "model_step": "script",
+      "summary": "Search the user's drive for images/videos, dedupe by hash, copy into ./deck-assets/, batch-upload via the MCP. Pure script."
+    },
+    {
+      "name": "deckcp-build-deck",
+      "tier": 2,
+      "status": "ready",
+      "model_step": "mcp",
+      "summary": "brief/outline → generate_outline → generate_slides_from_outline → check_slide → render_slides. Orchestration, minimal tokens."
+    },
+    {
+      "name": "deckcp-brand",
+      "tier": 2,
+      "status": "planned",
+      "model_step": "main-loop",
+      "summary": "Assemble a brand brief (palette, voice, logos). NOTE: no brand-write MCP tool exists yet — produces brand-brief.json."
+    },
+    {
+      "name": "deckcp-edit",
+      "tier": 2,
+      "status": "planned",
+      "model_step": "mixed",
+      "summary": "Deterministic edit recipes: font size / theme via update_deck.deck_theme, reorder, color swap; rewrite_slide only when copy must change."
+    },
+    {
+      "name": "deckcp-analyze",
+      "tier": 2,
+      "status": "planned",
+      "model_step": "script",
+      "summary": "get_deck_analytics + render → a script summarizes views/dwell/engagement into a report."
+    },
+    {
+      "name": "deckcp-share",
+      "tier": 2,
+      "status": "planned",
+      "model_step": "none",
+      "summary": "Share/unshare a deck and set the gate using the access tools (share_deck, list_deck_access, revoke_deck_access, set_deck_share_mode)."
+    },
+    {
+      "name": "deckcp-install",
+      "tier": 2,
+      "status": "planned",
+      "model_step": "none",
+      "summary": "Meta skill: fetch the pack from the public repo into the user's .claude/skills via the MCP install tool's fetch-and-write instructions."
+    }
+  ]
+}
