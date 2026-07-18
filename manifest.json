@@ -68,6 +68,13 @@
       "summary": "Distill the user's voice/tone from writing samples into voice.json that later steps feed to copy."
     },
     {
+      "name": "github-lookup",
+      "tier": 1,
+      "status": "ready",
+      "model_step": "script",
+      "summary": "Resolve a person from GitHub by username, commit SHA, or email — name, profile, and public/commit-author email. Pairs with deckcp-email. Uses the gh CLI."
+    },
+    {
       "name": "deckcp-gather-assets",
       "tier": 2,
       "status": "ready",
@@ -108,6 +115,13 @@
       "status": "planned",
       "model_step": "none",
       "summary": "Share/unshare a deck and set the gate using the access tools (share_deck, list_deck_access, revoke_deck_access, set_deck_share_mode)."
+    },
+    {
+      "name": "deckcp-email",
+      "tier": 2,
+      "status": "ready",
+      "model_step": "mixed",
+      "summary": "Email a contact (a DeckCP lead or anyone) via the Zavu messaging API — cc, reply-to, dry-run preview by default. Compose is main-loop; the send is a deterministic script. Needs ZAVU_API_KEY."
     },
     {
       "name": "deckcp-install",

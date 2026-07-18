@@ -49,6 +49,8 @@ See [`manifest.json`](manifest.json) for the full inventory and status. Highligh
 | `deck-outline` | 1 | Turn the brief into a story spine before any slides. |
 | `deckcp-gather-assets` | 2 | Find/dedupe your own images, upload them to DeckCP. |
 | `deckcp-build-deck` | 2 | brief/outline → generate → validate → render a real DeckCP deck. |
+| `github-lookup` | 1 | Resolve a person from GitHub (username / commit / email) to a name + contact. |
+| `deckcp-email` | 2 | Email a contact via Zavu — cc, reply-to, dry-run by default. Needs `ZAVU_API_KEY`. |
 
 ## Design principles
 
