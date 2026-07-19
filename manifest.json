@@ -1,6 +1,6 @@
 {
   "name": "deckcp-deck-making-skills",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "title": "DeckCP deck-making skill pack",
   "description": "Interview, outline, critique, build, edit, analyze, and share great decks from Claude Code. Two tiers: provider-agnostic deck craft that works with no DeckCP account, plus DeckCP-powered skills that drive the DeckCP MCP.",
   "target_runtime": "claude-code",
@@ -18,6 +18,20 @@
     "2": "DeckCP-powered — drives the DeckCP MCP (build/edit/share/assets)."
   },
   "skills": [
+    {
+      "name": "deckcp-onboard",
+      "tier": 1,
+      "status": "ready",
+      "model_step": "mcp",
+      "summary": "Start here — verify the MCP connection (degrade gracefully to Tier 1 without one), orient on decks/brand, ask one intent question, route to exactly one next skill."
+    },
+    {
+      "name": "deckcp-author-slides",
+      "tier": 2,
+      "status": "ready",
+      "model_step": "main-loop",
+      "summary": "Manual slide authoring against the rendering contract: classes-only vocabulary, typed chart props vs pipe-string primitives, frontmatter shape, presets, masters, and the check_slide → upsert → render-and-look loop."
+    },
     {
       "name": "deck-interview",
       "tier": 1,

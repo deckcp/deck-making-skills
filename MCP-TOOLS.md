@@ -76,8 +76,8 @@ Skill: [`deckcp-build-deck`](skills/deckcp-build-deck/SKILL.md).
 | `get_masters` | A deck's master slides (named layouts: background, logo slot, title/subtitle presets, footers, decor layer), MERGED across global ← brand ← deck scopes. Assign via `frontmatter.master` in `upsert_slides`. |
 | `set_masters` | Replace the master array wholesale (get, modify, PUT back). `scope:'deck'` needs editor access; `scope:'brand'` (owner/org) installs a house style inherited by **every** deck on the brand. Follow with `render_slides refresh:true`. |
 
-No dedicated skill yet — `deckcp-build-deck` and `deckcp-edit` reference the
-guide; a masters/house-style skill is on the roadmap.
+Skill: [`deckcp-author-slides`](skills/deckcp-author-slides/SKILL.md) — the
+manual-editing skill built on this whole group (contract, presets, masters).
 
 ## Assets
 
@@ -128,7 +128,7 @@ No skill yet.
 | Deck lifecycle | 3 | `deckcp-build-deck`, `deckcp-edit` — `delete_deck` intentionally has no skill |
 | Slides | 7 | `deckcp-edit`, `deckcp-build-deck` |
 | Generation | 3 | `deckcp-build-deck` — `generate_slides_from_text` mentioned here only |
-| Authoring reference | 5 | referenced in build/edit; **masters/presets have no skill yet** |
+| Authoring reference | 5 | `deckcp-author-slides` (manual editing: contract, presets, masters) |
 | Assets | 2 | `deckcp-gather-assets` — `search_assets` mentioned here only |
 | Sharing | 4 | `deckcp-share` |
 | Analytics & CRM | 5 | `deckcp-analyze` |

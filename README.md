@@ -8,6 +8,17 @@ Most AI deck tools skip straight to slides. This pack doesn't. It interrogates
 you first, fixes the story, and only then builds — because a deck fails at the
 narrative level long before it fails at the design level.
 
+## Start here
+
+1. **Install the pack** (two ways, below — takes a minute).
+2. **Connect the DeckCP MCP** — mint a token or use the OAuth connector at
+   [deckcp.com/mcp](https://deckcp.com/mcp). *Optional to start:* the Tier 1
+   skills (interview, outline, GitHub lookup) work with no account at all.
+3. **Run `/deckcp-onboard`** — it checks your setup, orients on your decks and
+   brand, asks one question about what you're trying to make happen, and routes
+   you to the right skill. New user? It'll walk you into building your first
+   real deck end to end.
+
 ## The workflow
 
 ```
@@ -74,6 +85,7 @@ the full 34-tool surface is documented in [`MCP-TOOLS.md`](MCP-TOOLS.md).
 
 | Skill | Tier | What it does |
 | --- | --- | --- |
+| `deckcp-onboard` | 1 | Start here: checks your setup, orients, and routes you to the right skill with one question. |
 | `deck-interview` | 1 | Interview you about audience, goal, ask, and proof — and push back on weak positioning. Emits `brief.json`. |
 | `deck-outline` | 1 | Build the story spine from the brief before any slides exist. Emits `outline.json` + `outline.md`. |
 | `github-lookup` | 1 | Resolve a person from GitHub — username, commit SHA, or email — to a name, profile, and contact. Zero tokens (`gh` CLI). |
@@ -81,6 +93,7 @@ the full 34-tool surface is documented in [`MCP-TOOLS.md`](MCP-TOOLS.md).
 | `deckcp-build-deck` | 2 | Brief/outline → generate → validate every slide → render. Orchestration, minimal tokens. |
 | `deckcp-read-deck` | 2 | Orient on an existing deck: structure, rendered slides, and the story its headlines tell. The step before any edit. |
 | `deckcp-edit` | 2 | Deterministic edit recipes — theme (colors/fonts/margins), update a slide, reorder, duplicate, delete — validated and rendered after every change. |
+| `deckcp-author-slides` | 2 | Manual editing: hand-write slides against the rendering contract — exact words, exact layout, charts, presets, masters — when the pipelines shouldn't decide. |
 | `deckcp-share` | 2 | Per-person grants with roles + the deck-wide gate (public / email-gated / password / remix). Asks before widening access. |
 | `deckcp-analyze` | 2 | Sessions, engaged time, per-slide dwell and drop-off — turned into "fix this slide, follow up with these two people". |
 | `deckcp-email` | 2 | Email a contact or lead via the Zavu API — cc, reply-to, dry-run preview by default. Needs `ZAVU_API_KEY`. |
