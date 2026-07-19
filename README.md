@@ -69,7 +69,8 @@ skill by name: `/deck-interview`, `/deck-outline`, `/deckcp-build-deck`.
 ## The skills
 
 Two tiers. **Tier 1** is provider-agnostic deck craft — useful with no DeckCP
-account. **Tier 2** drives the DeckCP MCP to build, edit, and share real decks.
+account. **Tier 2** drives the DeckCP MCP to build, edit, and share real decks —
+the full 34-tool surface is documented in [`MCP-TOOLS.md`](MCP-TOOLS.md).
 
 | Skill | Tier | What it does |
 | --- | --- | --- |
