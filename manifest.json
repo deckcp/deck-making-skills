@@ -1,6 +1,6 @@
 {
   "name": "deckcp-deck-making-skills",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "title": "DeckCP deck-making skill pack",
   "description": "Interview, outline, critique, build, edit, analyze, and share great decks from Claude Code. Two tiers: provider-agnostic deck craft that works with no DeckCP account, plus DeckCP-powered skills that drive the DeckCP MCP.",
   "target_runtime": "claude-code",
@@ -136,6 +136,20 @@
       "status": "ready",
       "model_step": "none",
       "summary": "Two-layer access model: per-person grants (share_deck/revoke_deck_access, roles) + the deck-wide gate (set_deck_share_mode: private/public/email/password, allow_remix). Confirms before widening access."
+    },
+    {
+      "name": "deckcp-capture",
+      "tier": 2,
+      "status": "ready",
+      "model_step": "mixed",
+      "summary": "Capture a person into the CRM from anything — conversation, card/badge photo, voice memo, GitHub, signature — via create_contact (email optional, upsert-by-email). The note carries the context; routes to share/email."
+    },
+    {
+      "name": "deckcp-voice-memos",
+      "tier": 2,
+      "status": "ready",
+      "model_step": "mixed",
+      "summary": "Semantic search over voice-memo transcripts (search_voice_memos) → deck material for deck-interview, contacts for deckcp-capture, or recalled facts. Excerpts first, full transcripts only for winners; privacy guardrails."
     },
     {
       "name": "deckcp-email",

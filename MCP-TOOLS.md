@@ -109,16 +109,18 @@ Skill: [`deckcp-share`](skills/deckcp-share/SKILL.md).
 | `update_lead` | Write the CRM overlay: pipeline stage (logged to the timeline), note, assignee, editable contact fields. Only for people with existing activity. |
 | `create_contact` | Manually add a contact with no deck activity (business card, a call). Email optional; when given, upserts-by-email. |
 
-Skill: [`deckcp-analyze`](skills/deckcp-analyze/SKILL.md) (paired with
-[`deckcp-email`](skills/deckcp-email/SKILL.md) for the follow-up).
+Skills: [`deckcp-analyze`](skills/deckcp-analyze/SKILL.md) (paired with
+[`deckcp-email`](skills/deckcp-email/SKILL.md) for the follow-up);
+[`deckcp-capture`](skills/deckcp-capture/SKILL.md) for `create_contact` —
+getting people into the CRM from cards, memos, GitHub, or a conversation.
 
 ## Personal
 
 | Tool | What it does |
 | --- | --- |
-| `search_voice_memos` | Semantic search over the account's voice-memo transcripts — ranked by meaning, returns date/place/topic + excerpt. Feeds `create_contact` ("the founder I met Tuesday") and deck context. |
+| `search_voice_memos` | Semantic search over the account's voice-memo transcripts — ranked by meaning, returns date/place/topic + excerpt (`full_transcript` for the whole thing). Feeds `create_contact` ("the founder I met Tuesday") and deck context. |
 
-No skill yet.
+Skill: [`deckcp-voice-memos`](skills/deckcp-voice-memos/SKILL.md).
 
 ## Coverage map
 
@@ -131,8 +133,8 @@ No skill yet.
 | Authoring reference | 5 | `deckcp-author-slides` (manual editing: contract, presets, masters) |
 | Assets | 2 | `deckcp-gather-assets` — `search_assets` mentioned here only |
 | Sharing | 4 | `deckcp-share` |
-| Analytics & CRM | 5 | `deckcp-analyze` |
-| Personal | 1 | none |
+| Analytics & CRM | 5 | `deckcp-analyze`, `deckcp-capture` |
+| Personal | 1 | `deckcp-voice-memos` |
 
 ---
 

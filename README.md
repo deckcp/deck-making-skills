@@ -96,6 +96,8 @@ the full 34-tool surface is documented in [`MCP-TOOLS.md`](MCP-TOOLS.md).
 | `deckcp-author-slides` | 2 | Manual editing: hand-write slides against the rendering contract — exact words, exact layout, charts, presets, masters — when the pipelines shouldn't decide. |
 | `deckcp-share` | 2 | Per-person grants with roles + the deck-wide gate (public / email-gated / password / remix). Asks before widening access. |
 | `deckcp-analyze` | 2 | Sessions, engaged time, per-slide dwell and drop-off — turned into "fix this slide, follow up with these two people". |
+| `deckcp-capture` | 2 | Capture a person into the CRM from anything — a chat, a card photo, a memo, a GitHub commit. Email optional; the note carries the context. |
+| `deckcp-voice-memos` | 2 | Semantic search over your voice-memo transcripts — turn a recorded pitch into deck material, a mentioned person into a contact, a call into a citable fact. |
 | `deckcp-email` | 2 | Email a contact or lead via the Zavu API — cc, reply-to, dry-run preview by default. Needs `ZAVU_API_KEY`. |
 
 ### Roadmap
