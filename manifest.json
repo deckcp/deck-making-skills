@@ -1,6 +1,6 @@
 {
   "name": "deckcp-deck-making-skills",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "title": "DeckCP deck-making skill pack",
   "description": "Interview, outline, critique, build, edit, analyze, and share great decks from Claude Code. Two tiers: provider-agnostic deck craft that works with no DeckCP account, plus DeckCP-powered skills that drive the DeckCP MCP.",
   "target_runtime": "claude-code",
@@ -96,25 +96,32 @@
       "summary": "Assemble a brand brief (palette, voice, logos). NOTE: no brand-write MCP tool exists yet — produces brand-brief.json."
     },
     {
+      "name": "deckcp-read-deck",
+      "tier": 2,
+      "status": "ready",
+      "model_step": "mcp",
+      "summary": "Read and understand an existing deck — structure via get_deck, pixels via render_slides, then the story from the headlines. The reconnaissance step before any edit/critique/share."
+    },
+    {
       "name": "deckcp-edit",
       "tier": 2,
-      "status": "planned",
+      "status": "ready",
       "model_step": "mixed",
-      "summary": "Deterministic edit recipes: font size / theme via update_deck.deck_theme, reorder, color swap; rewrite_slide only when copy must change."
+      "summary": "Deterministic edit recipes: theme (colors/fonts/margins) via update_deck.deck_theme, reorder/duplicate/delete, mechanical MDX edits via upsert_slides at the same slide_order; rewrite_slide only when copy must change. Always check_slide + render after."
     },
     {
       "name": "deckcp-analyze",
       "tier": 2,
-      "status": "planned",
-      "model_step": "script",
-      "summary": "get_deck_analytics + render → a script summarizes views/dwell/engagement into a report."
+      "status": "ready",
+      "model_step": "mcp",
+      "summary": "get_deck_analytics → read the per-slide dwell curve like an editor (drop-off = weakest slide), then list_leads/get_lead to pick who to follow up with. Routes to deckcp-email and deckcp-edit."
     },
     {
       "name": "deckcp-share",
       "tier": 2,
-      "status": "planned",
+      "status": "ready",
       "model_step": "none",
-      "summary": "Share/unshare a deck and set the gate using the access tools (share_deck, list_deck_access, revoke_deck_access, set_deck_share_mode)."
+      "summary": "Two-layer access model: per-person grants (share_deck/revoke_deck_access, roles) + the deck-wide gate (set_deck_share_mode: private/public/email/password, allow_remix). Confirms before widening access."
     },
     {
       "name": "deckcp-email",

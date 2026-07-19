@@ -11,19 +11,27 @@ narrative level long before it fails at the design level.
 ## The workflow
 
 ```
-/deck-interview   →   /deck-outline   →   /deckcp-build-deck   →   share & follow up
-   brief.json          outline.json         a real DeckCP deck       email your leads
+/deck-interview → /deck-outline → /deckcp-build-deck → /deckcp-share → /deckcp-analyze
+   brief.json       outline.json     a real DeckCP deck     out the door     who viewed, who to
+                                                                             follow up with
 ```
 
 1. **`/deck-interview`** — gets grilled *by* your agent: who is this deck for,
    what must it make happen, what's the ask, where's the proof. It pushes back
    on weak positioning instead of politely transcribing it. Emits `brief.json`.
-2. **`/deck-outline`** — turns the brief into a story spine
-   (problem → insight → solution → proof → ask) so every slide earns its place.
+2. **`/deck-outline`** — turns the brief into a story spine, picked for the
+   deck type (investor, sales, partnership; live vs. sent-as-link) — so every
+   slide earns its place and every headline states a conclusion, not a topic.
 3. **`/deckcp-build-deck`** — drives the [DeckCP](https://deckcp.com) pipeline:
    generate on-brand slides, validate each one, render for review.
-4. **Work the follow-up** — `/github-lookup` resolves a person to a name and
-   contact; `/deckcp-email` sends the note (dry-run by default).
+4. **`/deckcp-share`** — invite people with roles, or set the gate: public
+   link, email-gated (views become identified leads), or password.
+5. **`/deckcp-analyze`** — read the per-slide dwell curve like an editor: the
+   slide where viewers drop off is your next edit. Then `/github-lookup` +
+   `/deckcp-email` to work the follow-up.
+
+And in between: `/deckcp-read-deck` to orient on any existing deck, and
+`/deckcp-edit` to change it — theme, copy, order — without regenerating.
 
 Steps 1–2 work with **no DeckCP account at all**. Use them with any deck tool.
 
@@ -70,6 +78,10 @@ account. **Tier 2** drives the DeckCP MCP to build, edit, and share real decks.
 | `github-lookup` | 1 | Resolve a person from GitHub — username, commit SHA, or email — to a name, profile, and contact. Zero tokens (`gh` CLI). |
 | `deckcp-gather-assets` | 2 | Find your own images/videos on disk, dedupe by hash, upload to DeckCP — so slides use your real photos, not stock art. |
 | `deckcp-build-deck` | 2 | Brief/outline → generate → validate every slide → render. Orchestration, minimal tokens. |
+| `deckcp-read-deck` | 2 | Orient on an existing deck: structure, rendered slides, and the story its headlines tell. The step before any edit. |
+| `deckcp-edit` | 2 | Deterministic edit recipes — theme (colors/fonts/margins), update a slide, reorder, duplicate, delete — validated and rendered after every change. |
+| `deckcp-share` | 2 | Per-person grants with roles + the deck-wide gate (public / email-gated / password / remix). Asks before widening access. |
+| `deckcp-analyze` | 2 | Sessions, engaged time, per-slide dwell and drop-off — turned into "fix this slide, follow up with these two people". |
 | `deckcp-email` | 2 | Email a contact or lead via the Zavu API — cc, reply-to, dry-run preview by default. Needs `ZAVU_API_KEY`. |
 
 ### Roadmap
@@ -81,8 +93,7 @@ Planned next (see [`manifest.json`](manifest.json) for the full inventory and st
   `deck-analyze-visual` (render each slide and *look* at it),
   `deck-analyze-multi` (investor / sales / skeptic / 5-second-test lenses).
 - **Voice** — `deck-writing-samples` distills your tone from things you've written.
-- **DeckCP operations** — `deckcp-edit` (deterministic edit recipes),
-  `deckcp-brand`, `deckcp-share`, `deckcp-analyze` (views/dwell/engagement reports).
+- **Brand** — `deckcp-brand` assembles a brand brief (palette, voice, logos).
 
 ## Design principles
 
